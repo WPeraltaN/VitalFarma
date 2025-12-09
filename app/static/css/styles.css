@@ -1,0 +1,169 @@
+/* -----------------------------------------------------------
+   Paleta de colores VitalFarma
+----------------------------------------------------------- */
+
+:root {
+    --verde: #4CAF50;
+    --verde-oscuro: #3d8a41;
+    --azul: #1A3C6E;
+    --gris-claro: #f5f7fa;
+    --gris-texto: #555;
+    --blanco: #fff;
+}
+
+/* -----------------------------------------------------------
+   Reset
+----------------------------------------------------------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* -----------------------------------------------------------
+   HERO
+----------------------------------------------------------- */
+
+.hero {
+    background: linear-gradient(135deg, rgba(0,0,0,.6), rgba(0,0,0,.4)), url(../assets/img/bg_hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--blanco);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 1rem;
+    padding-left: 10rem;
+    height: 100vh;
+    margin-bottom: 3rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+.hero .btn {
+    margin-top: 20px;
+    background: var(--blanco);
+    color: var(--azul);
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    width: fit-content;
+    text-decoration: none;
+}
+
+.hero .btn:hover {
+    background: var(--verde-oscuro);
+    color: var(--blanco);
+}
+
+/* -----------------------------------------------------------
+   SECCIONES EN GENERAL
+----------------------------------------------------------- */
+.section_productos_destacados,
+.section_categorias{
+    width: 90vw;
+    margin: auto;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+
+
+/* -----------------------------------------------------------
+   SECCIÓN: PRODUCTOS DESTACADOS
+----------------------------------------------------------- */
+
+.section_productos_destacados .btn{
+    text-decoration: none;
+    margin-top: -.4rem;
+    padding: .8rem;
+    border-radius: 5px;
+    color: var(--verde-oscuro);
+    float: right;
+    font-weight: bold;
+    transition: .3s;
+}
+.section_productos_destacados .btn:hover{
+    background: var(--verde-oscuro);
+    color: var(--blanco);
+}
+.section_productos_destacados h2{float: left;}
+
+.contenedor_productos{
+    padding-top: 3rem;
+}
+
+.tarjeta_producto {
+    background: var(--blanco);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: 0.3s ease;
+    width: fit-content;
+}
+
+.tarjeta_producto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.tarjeta_producto img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.tarjeta_producto .precio {
+    color: var(--verde);
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* -----------------------------------------------------------
+   SECCIÓN: CATEGORÍAS
+----------------------------------------------------------- */
+.section_categorias{
+ margin-top: 5rem;
+}
+
+.contenedor_categorias{
+    padding-top: 1rem;
+}
+
+.tarjeta_categoria {
+    padding: 2rem;
+    background: var(--blanco);
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+    width: fit-content;
+}
+
+.tarjeta_categoria img{
+    margin-bottom: 1rem;
+}
+
+.tarjeta_categoria:hover {
+    background: var(--verde);
+    color: var(--blanco);
+    transform: translateY(-6px);
+}
+.tarjeta_categoria .icono_blanco{display: none;}
+.tarjeta_categoria:hover .icono_blanco{display: block;}
+.tarjeta_categoria:hover .icono_negro{display: none;}

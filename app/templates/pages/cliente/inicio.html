@@ -1,12 +1,47 @@
 {% extends "layout/app.html" %}
 {% load static %}
 
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-{% endblock %}
-
-{% block title %}Inicio{% endblock %}
+{% block title %}VitalFarma | Tu Farmacia de confianza{% endblock %}
 
 {% block content %}
-    <h1>Contenido</h1>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Bienvenido a VitalFarma</h1>
+        <p>Tu farmacia de confianza</p>
+        <a href="#" class="btn">Ver Productos</a>
+    </section>
+
+    <!-- Productos destacados -->
+    <section class="section_productos_destacados">
+        <!-- Título -->
+        <h2>Productos destacados</h2>
+        <a href="#" class="btn">Ver más</a>
+        <!-- Contenedor para las tarjetas de los productos -->
+        <div class="contenedor_productos">
+            <!-- Tarjeta para cada producto -->
+            <div class="tarjeta_producto">
+                <img src="{% static 'assets/img/producto/omeprazole.webp' %}" alt="Imagen del producto">
+                <p class="nombre_producto">Omeprazole</p>
+                <div class="calificacion">estrellas</div>
+                <p class="precio">RD$00.00</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Categorías de productos -->
+    <section class="section_categorias">
+        <h2>Categorías</h2>
+        <!-- Contenedor para las tarjetas de las categorías -->
+        <div class="contenedor_categorias">
+            <!-- Tarjeta para cada categoría -->
+            <div class="tarjeta_categoria">
+                <!-- Icono representativo de la categoría -->
+                <img src="{% static 'assets/icon/categoria_producto/medicamentoBLanco.png' %}" alt="Icono representativo de la categoría" class="icono_blanco">
+                <img src="{% static 'assets/icon/categoria_producto/medicamentoNegro.png' %}" alt="Icono representativo de la categoría" class="icono_negro">
+                <!-- Nombre de la categoría -->
+                <p class="nombre_categoria">Medicamentos</p>
+            </div>
+        </div>
+    </section>
 {% endblock %}
