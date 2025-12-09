@@ -6,16 +6,17 @@
     <title>{% block title %}{% endblock %}</title> 
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
+    {% block extra_css %}
+    {% endblock %}
 </head>
 <body>
-    {% include 'components/navbar.html' %}
+    {% include 'components/cliente/navbar.html' %}
     <main>
         {%block content%}
         {%endblock%}
     </main>
-    {% include 'components/footer.html' %}
+    {% include 'components/cliente/footer.html' %}
 
 </body>
 </html>

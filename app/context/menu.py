@@ -7,7 +7,7 @@ def menu_principal(req):
             
             # {'name':'Carrito', 'url':'carrito'},
             
-            # {'name':'Login', 'url':'login'},
-            # {'name':'Registro', 'url':'registro'},
+            {'name':'Login', 'url':'login'},
+            {'name':'Registro', 'url':'register'},
         ]
     }

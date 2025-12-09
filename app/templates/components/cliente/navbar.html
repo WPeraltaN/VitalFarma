@@ -1,0 +1,11 @@
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+{% endblock %}
+
+<nav>
+    {% for item in menu %}
+        <a href="{% url item.url %}">{{item.name}}</a>
+    {% endfor %}
+</nav>

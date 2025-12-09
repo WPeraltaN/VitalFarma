@@ -1,0 +1,2 @@
+* CLIENTES: Nombre, Correo, Contrasena
+* EMPLEADOS: Nombre, Apellido, Cedula, Correo, Contrasena, Puesto
