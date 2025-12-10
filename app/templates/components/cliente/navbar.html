@@ -6,6 +6,6 @@
 
 <nav>
     {% for item in menu %}
-        <a href="{% url item.url %}">{{item.name}}</a>
+        <a href="{% url item.url %}" class="{{item.name}}">{{item.name}}</a>
     {% endfor %}
 </nav>

@@ -1,3 +1,86 @@
+@import url("./styles.css");
+
+/* -----------------------------------------------------------
+HEADER
+----------------------------------------------------------- */
+header{
+    background-color: white;
+    position: absolute;
+    width: 95%;
+    margin-top: 1rem;
+    padding: 0 1.5rem;
+    border-radius: .5rem;
+
+    display: grid;
+    grid-template-columns: 15rem 1fr 1fr;
+    gap: 1.5rem;
+
+    align-items: center;
+    justify-items: center;
+    justify-self: center;
+    
+}
+
+header img{
+    height: 8rem;
+}
+
+/* -----------------------------------------------------------
+BUSCADOR
+----------------------------------------------------------- */
+header form{
+    display: flex;
+}
+
+header form input{
+    padding: .8rem;
+    width: 30vw;
+    border: solid .1rem var(--verde);
+    border-radius: .5rem;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+
+    font-size: .8rem;
+}
+
+header form input:focus{
+    /* background-color: red; */
+    /* border: none;
+    border: 2px solid var(--verde-oscuro); */
+}
+
+header form button{
+    padding: .8rem;
+    width: 30%;
+    border: solid .1rem var(--verde);
+    border-radius: .5rem;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    background-color: var(--verde);
+    color: white;
+    font-weight: bold;
+
+    transition: .3s;
+}
+
+header form button:hover{
+    background-color: var(--verde-oscuro);
+    cursor: pointer;
+}
+
+/* -----------------------------------------------------------
+NAV
+----------------------------------------------------------- */
 nav{
-    background-color: aqua;
+    display: flex;
+    gap: 1rem;
+}
+nav a{
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--azul);
+}
+
+nav .Login{
+    margin-left: 2rem;
 }

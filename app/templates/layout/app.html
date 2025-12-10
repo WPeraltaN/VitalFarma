@@ -4,14 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title> 
-
+    
     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
     {% block extra_css %}
     {% endblock %}
 </head>
 <body>
-    {% include 'components/cliente/navbar.html' %}
+    <header>
+        <!-- Logo de VitalFarma -->
+        <img src="{% static 'assets/img/logo/logo2RMBG.png' %}" alt="Logo de VitalFarma">
+
+        <!-- Barra de búsqueda -->
+        <form action="">
+            <input type="text" placeholder="Realizar búsqueda...">
+            <button type="submit">Buscar</button>
+        </form>
+
+        <!-- Barra de navegación -->
+        {% include 'components/cliente/navbar.html' %}
+    </header>
     <main>
         {%block content%}
         {%endblock%}
