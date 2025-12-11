@@ -36,7 +36,7 @@ header form{
 header form input{
     padding: .8rem;
     padding-left: 3rem;
-    width: 30vw;
+    width: 25vw;
     border: solid .1rem rgba(0, 0, 0, .3);
     border-radius: .3rem;
     border-top-right-radius: 0;
