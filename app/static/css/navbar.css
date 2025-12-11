@@ -4,8 +4,8 @@
 HEADER
 ----------------------------------------------------------- */
 header{
-    background-color: white;
-    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
     width: 95%;
     margin-top: 1rem;
     padding: 0 1.5rem;
@@ -22,7 +22,7 @@ header{
 }
 
 header img{
-    height: 8rem;
+    height: 7rem;
 }
 
 /* -----------------------------------------------------------
@@ -30,30 +30,39 @@ BUSCADOR
 ----------------------------------------------------------- */
 header form{
     display: flex;
+    height: 2.5rem;
 }
 
 header form input{
     padding: .8rem;
+    padding-left: 3rem;
     width: 30vw;
-    border: solid .1rem var(--verde);
-    border-radius: .5rem;
-    border-bottom-right-radius: 0;
+    border: solid .1rem rgba(0, 0, 0, .3);
+    border-radius: .3rem;
     border-top-right-radius: 0;
-
+    border-bottom-right-radius: 0;
     font-size: .8rem;
 }
 
 header form input:focus{
-    /* background-color: red; */
-    /* border: none;
-    border: 2px solid var(--verde-oscuro); */
+    outline: none;
+    border: none;
+    border: 2px solid var(--verde-oscuro);
+}
+
+header form img{
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+    margin-left: 1rem;
 }
 
 header form button{
-    padding: .8rem;
-    width: 30%;
+    padding: 0 1rem;
     border: solid .1rem var(--verde);
-    border-radius: .5rem;
+    border-radius: .3rem;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     background-color: var(--verde);
@@ -73,14 +82,51 @@ NAV
 ----------------------------------------------------------- */
 nav{
     display: flex;
-    gap: 1rem;
 }
 nav a{
     text-decoration: none;
+    font-size: .95rem;
     font-weight: bold;
     color: var(--azul);
+    padding: .6rem 1rem;
 }
 
-nav .Login{
-    margin-left: 2rem;
+nav a::after{
+    content: '';
+    width: 0;
+    height: .13rem;
+    display: block;
+    transition: .3s;
+}
+
+nav a:hover::after{
+    width: 100%;
+    background-color: var(--verde);
+}
+
+nav .Login:hover::after,
+nav .Register:hover::after{
+    display: none;
+}
+
+nav .Login,
+nav .Register{
+    position: relative;
+    right: -5rem;
+    text-align: right;
+    transition: .3s;
+}
+
+nav .Login:hover{
+    background-color: rgb(224, 224, 224);
+}
+
+nav .Register:hover{
+    background-color: var(--verde-oscuro);
+}
+
+nav .Register{
+    background-color: var(--verde);
+    color: white;
+    border-radius: .2rem;
 }

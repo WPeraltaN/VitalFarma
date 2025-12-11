@@ -4,6 +4,7 @@ urlpatterns = [
     # Pantallas de CLIENTE
     path('',views.inicio, name='inicio'),
     path('productos/',views.productos, name='productos'),
+    path('contacto/',views.productos, name='contacto'),
 
     # Pantallas de AUTENTIFICACION
     path('login/',views.login, name='login'),

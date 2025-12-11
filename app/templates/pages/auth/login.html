@@ -1,31 +1,33 @@
 {% extends "layout/base_auth.html" %}
 {% load static %}
 
-<!-- Formulario de inicio de sesion -->
-<form action="">
-    <!-- Titulo -->
-    <h2>Inicia sesion</h2>
-    
-    <!-- Iniciar sesion con google -->
-    <a href="#">Iniciar con google</a>
+{% block content %}
+    <!-- Formulario de inicio de sesion -->
+    <form action="">
+        <!-- Titulo -->
+        <h2>Inicia sesion</h2>
+        
+        <!-- Iniciar sesion con google -->
+        <a href="#">Iniciar con google</a>
 
-    <!-- Contenedor para los inputs-->
-    <div class="contenedor_inputs">
-        <!-- Input de correo -->
-        <div class="contenedor_correo">
-            <input type="email" name="" id="" placeholder="Correo">
-            <img src="#" alt="Icono de correo">
+        <!-- Contenedor para los inputs-->
+        <div class="contenedor_inputs">
+            <!-- Input de correo -->
+            <div class="contenedor_correo">
+                <input type="email" name="" id="" placeholder="Correo">
+                <img src="#" alt="Icono de correo">
+            </div>
+            <!-- Input de contrasena -->
+            <div class="contenedor_contrasena">
+                <input type="password" name="" id="" placeholder="Contrasena">
+                <img src="#" alt="Icono de contrasena">
+            </div>
         </div>
-        <!-- Input de contrasena -->
-        <div class="contenedor_contrasena">
-            <input type="password" name="" id="" placeholder="Contrasena">
-            <img src="#" alt="Icono de contrasena">
-        </div>
-    </div>
 
-    <!-- Recuperar cuenta -->
-    <a href="#">Olvidaste tu contrasena?</a>
+        <!-- Recuperar cuenta -->
+        <a href="#">Olvidaste tu contrasena?</a>
 
-    <!-- Boton iniciar sesion -->
-    <button type="submit">Iniciar sesion</button>
-</form>
+        <!-- Boton iniciar sesion -->
+        <button type="submit">Iniciar sesion</button>
+    </form>
+{% endblock %}  

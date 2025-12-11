@@ -78,11 +78,17 @@ img{
 ----------------------------------------------------------- */
 .section_productos_destacados,
 .section_categorias{
-    width: 90vw;
+    width: 80vw;
     margin: auto;
 }
 
-
+.contenedor_categorias,
+.contenedor_productos{
+    display: flex;
+    gap: 3rem;
+    /* justify-content: center; */
+    width: 100%;
+}
 
 /* -----------------------------------------------------------
    SECCIÓN: PRODUCTOS DESTACADOS
@@ -155,10 +161,17 @@ img{
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     transition: 0.3s ease;
     width: fit-content;
+    justify-items: center;
 }
 
 .tarjeta_categoria img{
     margin-bottom: 1rem;
+    width: 5rem;
+}
+
+.tarjeta_categoria .nombre_categoria{
+    font-weight: bolder;
+    font-size: 1.2rem;
 }
 
 .tarjeta_categoria:hover {
