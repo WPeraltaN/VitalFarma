@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>{% block title %}{% endblock %}</title>
+
 </head>
 <body>
     <header>
-        <!-- En tu plantilla HTML -->
-        {% if request.META.HTTP_REFERER %}
+        <!-- {% if request.META.HTTP_REFERER %}
             <a href="{{ request.META.HTTP_REFERER }}">Volver</a>
         {% else %}
-            <!-- Opción por si no hay referer (ej. si la página se carga directamente) -->
-            <a href="{% url 'nombre_de_tu_vista_inicial' %}">Ir al inicio</a>
-        {% endif %}
+            <a href="{% url 'inicio' %}">Ir al inicio</a>
+        {% endif %} -->
+
+        <a href="{% url 'inicio' %}">Ir al inicio</a>
+
     </header>
     <main>
         {% block content %}

@@ -3,12 +3,13 @@
 
 {% block content %}
     <!-- Formulario de inicio de sesion -->
-    <form action="">
+    <form method="POST">
+        {% csrf_token %}
         <!-- Titulo -->
         <h2>Inicia sesion</h2>
         
         <!-- Iniciar sesion con google -->
-        <a href="#">Iniciar con google</a>
+        <a href="#">Continuar con google</a>
 
         <!-- Contenedor para los inputs-->
         <div class="contenedor_inputs">
@@ -26,6 +27,9 @@
 
         <!-- Recuperar cuenta -->
         <a href="#">Olvidaste tu contrasena?</a>
+
+        <!-- link de registro -->
+         <a href="{% url 'register' %}">No tienes una cuenta?</a>
 
         <!-- Boton iniciar sesion -->
         <button type="submit">Iniciar sesion</button>

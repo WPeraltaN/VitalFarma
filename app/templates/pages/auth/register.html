@@ -1,38 +1,47 @@
-<!-- Formulario de Registro -->
-<form action="">
-    <!-- Titulo -->
-    <h2>Inicia sesion</h2>
-    
-    <!-- Iniciar sesion con google -->
-    <a href="#">Iniciar con google</a>
+{% extends "layout/base_auth.html" %}
+{% load static %}
 
-    <!-- Contenedor para los inputs-->
-    <div class="contenedor_inputs">
-        <!-- Input de nombre -->
-        <div class="contenedor_nombre">
-            <input type="text" name="" id="" placeholder="Nombre">
-            <img src="#" alt="Icono de correo">
-        </div>
-        <!-- Input de correo -->
-        <div class="contenedor_correo">
-            <input type="email" name="" id="" placeholder="Correo">
-            <img src="#" alt="Icono de correo">
-        </div>
-        <!-- Input de contrasena -->
-        <div class="contenedor_contrasena">
-            <input type="password" name="" id="" placeholder="Contrasena">
-            <img src="#" alt="Icono de contrasena">
-        </div>
-        <!-- Input de confirmar contrasena -->
-        <div class="contenedor_conf_contrasena">
-            <input type="password" name="" id="" placeholder="Confirmar Contrasena">
-            <img src="#" alt="Icono de contrasena">
-        </div>
-    </div>
+{% block content %}
+    <!-- Formulario de Registro -->
+    <form action="" method="POST">
+        {% csrf_token %}
+        <!-- Titulo -->
+        <h2>Crea una cuenta</h2>
+        
+        <!-- Iniciar sesion con google -->
+        <a href="#">Continuar con google</a>
 
-    <!-- Recuperar cuenta -->
-    <a href="#">Olvidaste tu contrasena?</a>
+        <!-- Contenedor para los inputs-->
+        <div class="contenedor_inputs">
+            <!-- Input de nombre -->
+            <div class="contenedor_nombre">
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                <img src="#" alt="Icono de correo">
+            </div>
+            <!-- Input de correo -->
+            <div class="contenedor_correo">
+                <input type="email" name="correo" id="correo" placeholder="Correo">
+                <img src="#" alt="Icono de correo">
+            </div>
+            <!-- Input de contrasena -->
+            <div class="contenedor_contrasena">
+                <input type="password" name="password" id="password" placeholder="Contrasena">
+                <img src="#" alt="Icono de contrasena">
+            </div>
+            <!-- Input de confirmar contrasena -->
+            <div class="contenedor_conf_contrasena">
+                <input type="password" name="" id="" placeholder="Confirmar Contrasena">
+                <img src="#" alt="Icono de contrasena">
+            </div>
+        </div>
 
-    <!-- Boton iniciar sesion -->
-    <button type="submit">Iniciar sesion</button>
-</form>
+        <!-- Recuperar cuenta -->
+        <a href="#">Olvidaste tu contrasena?</a>
+
+        <!-- link de registro -->
+        <a href="{% url 'login' %}">Ya tienes una cuenta?</a>
+
+        <!-- Boton iniciar sesion -->
+        <button type="submit">Iniciar sesion</button>
+    </form>
+{% endblock %}

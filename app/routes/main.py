@@ -8,5 +8,5 @@ urlpatterns = [
 
     # Pantallas de AUTENTIFICACION
     path('login/',views.login, name='login'),
-    path('register/',views.render, name='register')
+    path('register/',views.register, name='register')
 ]
