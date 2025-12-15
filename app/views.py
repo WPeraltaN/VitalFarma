@@ -22,6 +22,7 @@ def register(req):
             print("[DEBUG]: El formulario es válido")
             form.save()
         else:
+            error = form.errors
             print("[DEBUG]: ", form.errors)
     else:
         form = ClientesForm()  # Formulario vacío para GET
