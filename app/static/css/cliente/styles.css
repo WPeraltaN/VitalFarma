@@ -30,7 +30,7 @@ img{
 ----------------------------------------------------------- */
 
 .hero {
-    background: linear-gradient(135deg, rgba(0,0,0,.6), rgba(0,0,0,.4)), url(../assets/img/bg_hero.jpg);
+    background: linear-gradient(135deg, rgba(0,0,0,.6), rgba(0,0,0,.4)), url(../../assets/img/bg_hero.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     color: var(--blanco);

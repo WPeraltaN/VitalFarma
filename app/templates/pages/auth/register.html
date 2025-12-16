@@ -12,6 +12,14 @@
             <p style="color: red;">{{form.errors}}</p>
         {% endif %} -->
 
+        <!-- {% if messages %}
+            <div class="contenedor_mensaje">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %} -->
+        
         <!-- Iniciar sesion con google -->
         <a href="#">Continuar con google</a>
 
@@ -46,6 +54,6 @@
         <a href="{% url 'login' %}">Ya tienes una cuenta?</a>
 
         <!-- Boton iniciar sesion -->
-        <button type="submit">Iniciar sesion</button>
+        <button type="submit">Crear cuenta</button>
     </form>
 {% endblock %}

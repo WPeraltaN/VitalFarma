@@ -96,7 +96,7 @@ nav a::after{
     width: 0;
     height: .13rem;
     display: block;
-    transition: .3s;
+    transition: .8s;
 }
 
 nav a:hover::after{
@@ -129,4 +129,31 @@ nav .Register{
     background-color: var(--verde);
     color: white;
     border-radius: .2rem;
+}
+
+@media screen and (max-width: 1600px) {
+    header{
+        align-items: left;
+        justify-items: left;
+    }
+}
+
+@media screen and (max-width: 1450px) {
+    header{
+        grid-template-columns: 15rem 35% 1fr;
+    }
+
+    header form input{
+        width: 20vw;
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    header{
+        grid-template-columns: 15rem 30% 1fr;
+    }
+
+    header form input{
+        width: 20vw;
+    }
 }

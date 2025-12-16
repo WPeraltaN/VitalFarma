@@ -1,0 +1,14 @@
+@import url(../cliente/styles.css);
+
+main{
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+main form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
