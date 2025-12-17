@@ -11,3 +11,12 @@ def menu_principal(req):
             {'name':'Register', 'url':'register'},
         ]
     }
+
+def menu_empleados(req):
+    return{
+        'menu2':[
+            {'name':'Dashboard', 'url':'dashboard'},
+            {'name':'Productos', 'url':'productos'},
+            {'name':'Categorías', 'url':'categorias'},
+        ]
+    }

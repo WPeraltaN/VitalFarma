@@ -1,0 +1,7 @@
+{% load static %}
+
+<nav>
+    {% for item in menu2 %}
+        <a href="{% url item.url %}" class="{{item.name}}">{{item.name}}</a>
+    {% endfor %}
+</nav>
