@@ -16,7 +16,7 @@ def menu_empleados(req):
     return{
         'menu2':[
             {'name':'Dashboard', 'url':'dashboard'},
-            {'name':'Productos', 'url':'productos'},
+            {'name':'Productos', 'url':'sistema_productos'},
             {'name':'Categorías', 'url':'categorias'},
         ]
     }

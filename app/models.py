@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 class Clientes(models.Model):
     nombre = models.CharField(max_length=100)
     correo = models.EmailField(unique=True)
-    password = models.CharField(max_length=20)
+    password = models.CharField(max_length=200)
     def __str__(self):
         return self.nombre
     
