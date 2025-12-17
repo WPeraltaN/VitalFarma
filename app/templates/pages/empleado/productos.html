@@ -1,0 +1,30 @@
+{% extends "layout/base_empleado.html" %}
+{% load static %}
+
+{% block titulo_pagina %}Productos{% endblock %}
+
+{% block content %}
+
+    <section class="contenedor_tarjetas">
+        <!-- Tarjeta producto -->
+        <div class="tarjeta_producto">
+            <img src="img/paracetamol.png" alt="Paracetamol">
+
+            <div class="contenido_tarjeta">
+                <h3>Paracetamol 500mg</h3>
+                <p class="categoria">Categoría: Analgésicos</p>
+                <p>Alivio rápido del dolor y la fiebre.</p>
+
+                <p class="precio">$3.50</p>
+                <p class="stock">Stock: 25</p>
+                <p class="fecha">Vence: 2026-03-10</p>
+            </div>
+
+            <div class="acciones">
+                <button class="btn btn_editar">Editar</button>
+                <button class="btn btn_eliminar">Eliminar</button>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

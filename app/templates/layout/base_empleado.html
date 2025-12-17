@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+</head>
+<body>
+    <aside>
+        <img src="{% static 'assets/img/logo/logo2RMBG.png' %}" alt="Logo de la página">
+
+        
+        {% include 'components/empleado/navbar.html' %}
+    </aside>
+
+    <div class="contenedor">
+        <header>
+            <h1>{% block titulo_pagina %}{% endblock %}</h1>
+        </header>
+
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+</body>
+</html>

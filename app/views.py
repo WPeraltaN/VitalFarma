@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 # Pantallas del CLIENTE
+#-------------------------------------------------
 def inicio(req):
     return render(req,'pages/cliente/inicio.html')
 
@@ -13,7 +14,12 @@ def productos(req):
 def contacto(req):
     return render(req,'pages/cliente/contacto.html')
 
+
+
+#-------------------------------------------------
 # Pantallas de AUTENTIFICACION
+#-------------------------------------------------
+
 def login(req):
     if req.user.is_authenticated: # Condicional si el usuario esta autentificado
         return redirect('pages/cliente/inicio.html')
@@ -47,3 +53,17 @@ def register(req):
         form = ClientesForm()  # Formulario vacío para GET
 
     return render(req, 'pages/auth/register.html', {'form': form})
+
+
+
+#-------------------------------------------------
+# Pantallas de EMPLEADO
+#-------------------------------------------------
+def dashboard(req):
+    return render(req, 'pages/empleado/dashboard.html')
+
+def productos(req):
+    return render(req, 'pages/empleado/productos.html')
+
+def categorias(req):
+    return render(req, 'pages/empleado/categorias.html')
