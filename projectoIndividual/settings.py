@@ -121,6 +121,12 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmilBackend"
+EMAIL_EMISOR = "winnarperalta3@gmail.com"
+EMAIL_PASSWORD = "rhav ojkw jyus wnqb"
+SMTP_SERVER = "smtp.gmail.com"
+SMTP_PORT = 465
+
 LOGIN_URL = "login"
 LOGIN_REDIRECT_URL = "dasboard"
 LOGOUT_REDIRECT_URL = "login"
