@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     {% load static %}
+    <link rel="stylesheet"  href="{% static 'css/empleado/base_empleado.css' %}">
 </head>
 <body>
     <aside>
-        <img src="{% static 'assets/img/logo/logo2RMBG.png' %}" alt="Logo de la página">
+        <img src="{% static 'assets/img/logo/logo2RMBG.png' %}" class="logo" alt="Logo de la página">
 
         
         {% include 'components/empleado/navbar.html' %}
