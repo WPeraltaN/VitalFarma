@@ -75,6 +75,7 @@ def register(req):
 #-------------------------------------------------
 # Pantallas de EMPLEADO
 #-------------------------------------------------
+# @login_required
 def dashboard(req):
     return render(req, 'pages/empleado/dashboard.html')
 
