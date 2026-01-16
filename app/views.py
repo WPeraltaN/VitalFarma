@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import ClientesForm
+from .forms import ClientesForm, ProductosForm
 from .models import Productos, Clientes, Categoria
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib import messages
@@ -85,3 +85,12 @@ def sistema_productos(req):
 
 def categorias(req):
     return render(req, 'pages/empleado/categorias.html')
+
+def inventario(req):
+    if req.method=='POST':
+        productos_form = ProductosForm(req.POST)
+        if productos_form.is_valid():
+            productos_form.save()
+        else:
+            productos_form = ProductosForm()
+    return render(req, 'pages/empleado/inventario.html', {"productos_form":productos_form})
