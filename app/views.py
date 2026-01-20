@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import ClientesForm, ProductosForm
-from .models import Productos, Clientes, Categoria
+from .forms import ClientesForm #, ProductosForm
+from .models import Clientes
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib import messages
 from django.contrib.auth import authenticate
@@ -79,18 +79,18 @@ def register(req):
 def dashboard(req):
     return render(req, 'pages/empleado/dashboard.html')
 
-def sistema_productos(req):
-    productos = Productos.objects.all()
-    return render(req, 'pages/empleado/productos.html', {'productos': productos})
+# def sistema_productos(req):
+#     productos = Productos.objects.all()
+#     return render(req, 'pages/empleado/productos.html', {'productos': productos})
 
-def categorias(req):
-    return render(req, 'pages/empleado/categorias.html')
+# def categorias(req):
+#     return render(req, 'pages/empleado/categorias.html')
 
-def inventario(req):
-    if req.method=='POST':
-        productos_form = ProductosForm(req.POST)
-        if productos_form.is_valid():
-            productos_form.save()
-        else:
-            productos_form = ProductosForm()
-    return render(req, 'pages/empleado/inventario.html', {"productos_form":productos_form})
+# def inventario(req):
+#     if req.method=='POST':
+#         productos_form = ProductosForm(req.POST)
+#         if productos_form.is_valid():
+#             productos_form.save()
+#         else:
+#             productos_form = ProductosForm()
+#     return render(req, 'pages/empleado/inventario.html', {"productos_form":productos_form})

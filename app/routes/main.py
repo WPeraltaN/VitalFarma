@@ -12,6 +12,6 @@ urlpatterns = [
 
     # Pantallas de EMPLEADO
     path('sistema/dashboard/', views.dashboard, name='dashboard'),
-    path('sistema/productos', views.sistema_productos, name='sistema_productos'),
-    path('sistema/categorias', views.categorias, name='categorias'),
+    # path('sistema/productos', views.sistema_productos, name='sistema_productos'),
+    # path('sistema/categorias', views.categorias, name='categorias'),
 ]
