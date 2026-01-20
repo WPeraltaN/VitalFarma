@@ -8,43 +8,31 @@
         <!-- Titulo -->
         <h2>Crea una cuenta</h2>
         
-        <!-- {% if form.errors %}
-            <p style="color: red;">{{form.errors}}</p>
-        {% endif %} -->
 
-        <!-- {% if messages %}
+        {% if mensaje_error %}
             <div class="contenedor_mensaje">
-                {% for message in messages %}
-                    <p>{{ message }}</p>
-                {% endfor %}
+                <p style="color: red;">{{mensaje_error}}</p>
             </div>
-        {% endif %} -->
+        {% endif %}
         
         <!-- Iniciar sesion con google -->
-        <a href="#">Continuar con google</a>
+        {% comment %} <a href="#">Continuar con google</a> {% endcomment %}
 
         <!-- Contenedor para los inputs-->
         <div class="contenedor_inputs">
-            <!-- Input de nombre -->
-            <div class="contenedor_nombre">
-                <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-                <img src="#" alt="Icono de correo">
-            </div>
-            <!-- Input de correo -->
-            <div class="contenedor_correo">
-                <input type="email" name="correo" id="correo" placeholder="Correo">
-                <img src="#" alt="Icono de correo">
-            </div>
-            <!-- Input de contraseña -->
-            <div class="contenedor_contrasena">
-                <input type="password" name="password" id="password" placeholder="Contraseña">
-                <img src="#" alt="Icono de contraseña">
-            </div>
-            <!-- Input de confirmar contraseña -->
-            <div class="contenedor_conf_contrasena">
-                <input type="password" name="" id="" placeholder="Confirmar Contraseña">
-                <img src="#" alt="Icono de contraseña">
-            </div>
+                <input type="text" name="nombre" maxlength="100" required="" id="id_nombre" placeholder = "Nombre Completo">
+
+                <input type="email" name="correo" maxlength="254" required="" id="id_correo" placeholder = "Correo electronico">
+
+                <input type="text" name="telefono" maxlength="20" id="id_telefono" placeholder = "Telefono">
+
+                <input type="text" name="direccion" maxlength="300" required="" id="id_direccion" placeholder = "Direccion">
+
+                <input type="text" name="password" maxlength="100" required="" id="id_password" placeholder = "Contrasena">
+
+                <input type="text" name="cpassword" maxlength="100" required="" id="id_cpassword" placeholder = "Confirmar Contrasena">
+
+                <input type="hidden" name="estado" value="activo" id="id_estado">
         </div>
 
         <!-- Boton iniciar sesion -->

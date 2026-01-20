@@ -61,7 +61,7 @@ class Clientes(models.Model):
         choices=ESTADOS,
         default='activo'
     )
-
+    password = models.CharField(max_length=100, default='')
     fecha_registro = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

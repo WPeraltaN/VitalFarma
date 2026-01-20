@@ -56,18 +56,25 @@ def register(req):
         if form.is_valid():
             print("[DEBUG]: El formulario es válido")
             
-            cliente = form.save(commit=False)
-            cliente.password = make_password(form.cleaned_data['password'])
-            cliente.save()
+            password = req.POST['password']
+            cpassword = req.POST['cpassword']
+            
+            if password != cpassword:
+                mensaje_error = 'Las contraseñas no coinciden'
+            else:
+                cliente = form.save(commit=False)
+                cliente.password = make_password(form.cleaned_data['password'])
+                
+                cliente.save()
 
-            messages.success(req, "Cuenta creada correctamente")
-            return redirect('login')
+                messages.success(req, "Cuenta creada correctamente")
+                return redirect('login')
         else:
+            mensaje_error = 'Ya existe una cuenta con ese correo'
             print("[DEBUG]: ", form.errors)
     else:
         form = ClientesForm()
-
-    return render(req, 'pages/auth/register.html', {'form': form})
+    return render(req, 'pages/auth/register.html', {'form': form, 'mensaje_error': mensaje_error})
 
 
 
