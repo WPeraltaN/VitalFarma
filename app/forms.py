@@ -4,7 +4,7 @@ from .models import Clientes
 class ClientesForm(ModelForm):
     class Meta:
         model = Clientes
-        exclude = ['estado, documento']
+        exclude = ['estado','documento','rol']
 
 # class ProductosForm(ModelForm):
 #     class Meta:

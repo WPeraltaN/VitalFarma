@@ -24,19 +24,10 @@ class Empleados(models.Model):
     email = models.EmailField(unique=True)
     telefono = models.CharField(max_length=20, blank=True)
 
-    rol = models.ForeignKey(
-        Roles,
-        on_delete=models.PROTECT,
-        related_name='empleados'
-    )
+    rol = models.ForeignKey(Roles, on_delete=models.PROTECT)
 
-    estado = models.CharField(
-        max_length=10,
-        choices=ESTADOS,
-        default='activo'
-    )
+    estado = models.CharField(max_length=10,choices=ESTADOS,default='activo')
 
-    en_turno = models.BooleanField(default=False)
     ultimo_acceso = models.DateTimeField(null=True, blank=True)
     fecha_ingreso = models.DateField(default=timezone.now)
 
@@ -56,13 +47,11 @@ class Clientes(models.Model):
     documento = models.CharField(max_length=20, blank=True)
 
     direccion = models.CharField(max_length=300, default='')
-    estado = models.CharField(
-        max_length=10,
-        choices=ESTADOS,
-        default='activo'
-    )
+    estado = models.CharField(max_length=10, choices=ESTADOS, default='activo')
     password = models.CharField(max_length=100, default='')
     fecha_registro = models.DateTimeField(auto_now_add=True)
+    rol = models.ForeignKey(Roles, on_delete=models.PROTECT, default=1)
+
 
     def __str__(self):
         return self.nombre
