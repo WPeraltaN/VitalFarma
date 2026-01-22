@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import ClientesForm #, ProductosForm
-from .models import Clientes
+from .forms import ClientesForm, EmpleadosForm
+from .models import Clientes, Empleados
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib import messages
 from django.contrib.auth import authenticate
@@ -23,32 +23,33 @@ def contacto(req):
 # Pantallas de AUTENTIFICACIÓN
 #-------------------------------------------------
 
+from django.contrib.auth.hashers import check_password
+
 def login(req):
     if req.method == 'POST':
         correo = req.POST.get("correo", "").strip().lower()
         password = req.POST.get("password", "").strip()
 
         if not correo or not password:
-            print('[DEBUG]: Completa el correo y la contraseña.')
-            
             mensaje_error = "Completa el correo y la contraseña."
             return render(req, 'pages/auth/login.html', {'mensaje_error': mensaje_error})
 
-        user = Clientes.objects.filter(correo=correo).first()
+        cliente = Clientes.objects.filter(correo=correo).first()
+        if cliente and check_password(password, cliente.password):
+            req.session["id"] = cliente.id
+            messages.success(req, f"Bienvenido {cliente.nombre}")
+            return redirect('inicio')
 
-        if not user or not check_password(password, user.password):
-            print('[DEBUG]: Correo o contraseña incorrectos')
-            
-            mensaje_error = "Correo o contraseña incorrectos."
-            return render(req, 'pages/auth/login.html', {'mensaje_error': mensaje_error})
+        empleado = Empleados.objects.filter(correo=correo).first()
+        if empleado and check_password(password, empleado.password):
+            req.session["id"] = empleado.id
+            messages.success(req, f"Bienvenido {empleado.nombre}")
+            return redirect('dashboard')
 
-        req.session["id"] = user.id
-        print('[DEBUG]: Usuario logeado con exito')
-        messages.success(req, f"Bienvenido {user.nombre}")
-        return redirect('inicio')
-    else:
-        mensaje_error = ''
+        mensaje_error = "Correo o contraseña incorrectos."
         return render(req, 'pages/auth/login.html', {'mensaje_error': mensaje_error})
+    else:
+        return render(req, 'pages/auth/login.html', {'mensaje_error': ''})
 
 
 
@@ -68,7 +69,7 @@ def register(req):
                 return render(req, 'pages/auth/register.html', {'form': form,'mensaje_error': mensaje_error})
 
 
-            if Clientes.objects.filter(correo=correo).exists():
+            if Clientes.objects.filter(correo=correo).exists() or Empleados.objects.filter(correo=correo).exists():
                 mensaje_error = 'Ya existe una cuenta con ese correo'
                 return render(req, 'pages/auth/register.html', {'form': form,'mensaje_error': mensaje_error})
 
@@ -97,18 +98,31 @@ def register(req):
 def dashboard(req):
     return render(req, 'pages/empleado/dashboard.html')
 
-# def sistema_productos(req):
-#     productos = Productos.objects.all()
-#     return render(req, 'pages/empleado/productos.html', {'productos': productos})
+def pedidos(req):
+    return render(req, 'pages/empleado/pedidos.html')
 
-# def categorias(req):
-#     return render(req, 'pages/empleado/categorias.html')
+def inventario(req):
+    return render(req, 'pages/empleado/inventario.html')
 
-# def inventario(req):
-#     if req.method=='POST':
-#         productos_form = ProductosForm(req.POST)
-#         if productos_form.is_valid():
-#             productos_form.save()
-#         else:
-#             productos_form = ProductosForm()
-#     return render(req, 'pages/empleado/inventario.html', {"productos_form":productos_form})
+def clientes(req):
+    return render(req, 'pages/empleado/clientes.html')
+
+def empleados(req):
+    if req.method == 'POST':
+        form = EmpleadosForm(req.POST)
+        if form.is_valid():
+            correo = req.POST.get('correo', '').strip().lower()
+            password = req.POST.get('password')
+            if Empleados.objects.filter(correo=correo).exists() or Clientes.objects.filter(correo=correo).exists():
+                mensaje_error = 'Ya existe una cuenta con ese correo'
+                return render(req, 'pages/empleado/empleados.html',{'form':form, 'mensaje_error':mensaje_error})
+            
+            empleado = form.save(commit=False)
+            empleado.correo = correo
+            empleado.password = make_password(password)
+            empleado.save()
+    else:
+        form = EmpleadosForm()
+        
+    mensaje_error = ''
+    return render(req, 'pages/empleado/empleados.html',{'form':form, 'mensaje_error':mensaje_error})

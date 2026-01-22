@@ -21,18 +21,21 @@ class Empleados(models.Model):
     )
 
     nombre = models.CharField(max_length=100)
-    email = models.EmailField(unique=True)
+    correo = models.EmailField(unique=True)
     telefono = models.CharField(max_length=20, blank=True)
-
     rol = models.ForeignKey(Roles, on_delete=models.PROTECT)
-
     estado = models.CharField(max_length=10,choices=ESTADOS,default='activo')
-
+    password = models.CharField(max_length=100, default='')
     ultimo_acceso = models.DateTimeField(null=True, blank=True)
     fecha_ingreso = models.DateField(default=timezone.now)
 
     def __str__(self):
         return f"{self.nombre} ({self.rol.nombre})"
+    
+    def save(self, *args, **kwargs):
+        if self.correo:
+            self.correo = self.correo.lower()
+        super().save(*args, **kwargs)
 
 # ----- CLIENTES -----
 class Clientes(models.Model):
@@ -45,7 +48,6 @@ class Clientes(models.Model):
     correo = models.EmailField(unique=True)
     telefono = models.CharField(max_length=20, blank=True)
     documento = models.CharField(max_length=20, blank=True)
-
     direccion = models.CharField(max_length=300, default='')
     estado = models.CharField(max_length=10, choices=ESTADOS, default='activo')
     password = models.CharField(max_length=100, default='')

@@ -1,0 +1,15 @@
+{% extends "layout/base_empleado.html" %}
+{% load static %}
+
+{% block titulo_pagina %}Empleados{% endblock %}
+
+{% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <h2>Agregar empleado</h2>
+
+        {{form.as_p}}
+
+        <button type="submit">Crear empleado</button>
+    </form>
+{% endblock %}

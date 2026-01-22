@@ -1,12 +1,12 @@
 from django.forms import ModelForm
-from .models import Clientes
+from .models import Clientes, Empleados
 
 class ClientesForm(ModelForm):
     class Meta:
         model = Clientes
         exclude = ['estado','documento','rol']
 
-# class ProductosForm(ModelForm):
-#     class Meta:
-#         model = Productos
-#         fields = "__all__"
+class EmpleadosForm(ModelForm):
+    class Meta:
+        model = Empleados
+        exclude = ['ultimo_acceso', 'fecha_ingreso']
