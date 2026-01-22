@@ -66,6 +66,11 @@ class Clientes(models.Model):
 
     def __str__(self):
         return self.nombre
+    
+    def save(self, *args, **kwargs):
+        if self.correo:
+            self.correo = self.correo.lower()
+        super().save(*args, **kwargs)
 
 # ----- CATEGORÍAS -----
 class Categorias(models.Model):

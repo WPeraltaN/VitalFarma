@@ -11,6 +11,14 @@
         <!-- Iniciar sesion con google -->
         <a href="#">Continuar con google</a>
 
+        {% if mensaje_error %}
+            <div class="contenedor_mensaje">
+                <p style="color: red;">{{mensaje_error}}</p>
+            </div>
+        {% endif %}
+        
+        <!-- Iniciar sesion con google -->
+        {% comment %} <a href="#">Continuar con google</a> {% endcomment %}
         <!-- Contenedor para los inputs-->
         <div class="contenedor_inputs">
             <!-- Input de correo -->

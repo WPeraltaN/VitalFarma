@@ -12,3 +12,121 @@ main form{
     flex-direction: column;
     align-items: center;
 }
+
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* FONDO GENERAL */
+body {
+    min-height: 100vh;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+        url("/app/static/assets/img/auth/bg.png"); /* puedes cambiar la imagen */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* FORMULARIO */
+form {
+    width: 100%;
+    max-width: 420px;
+    background: #ffffff;
+    padding: 35px 30px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+/* TÍTULO */
+form h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #0b3c6f; /* azul farmacia */
+}
+
+/* MENSAJE DE ERROR */
+.contenedor_mensaje {
+    margin-bottom: 15px;
+    background: #ffe5e5;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* CONTENEDOR INPUTS */
+.contenedor_inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+/* INPUTS */
+.contenedor_inputs input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+    background: #f5f7fa;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.contenedor_inputs input::placeholder {
+    color: #9aa0a6;
+}
+
+.contenedor_inputs input:focus {
+    outline: none;
+    border-color: #1e88e5;
+    background: #ffffff;
+    box-shadow: 0 0 0 2px rgba(30, 136, 229, 0.15);
+}
+
+/* BOTÓN */
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #0b3c6f;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #0a2f55;
+    transform: translateY(-1px);
+}
+
+/* LINK LOGIN */
+form a {
+    display: block;
+    margin-top: 18px;
+    font-size: 14px;
+    color: #1e88e5;
+    text-decoration: none;
+}
+
+form a:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+    form {
+        margin: 20px;
+        padding: 25px 20px;
+    }
+}
