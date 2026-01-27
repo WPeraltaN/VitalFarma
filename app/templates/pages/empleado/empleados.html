@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block titulo_pagina %}Empleados{% endblock %}
+{% block subtitulo_pagina %}Administración del personal del sistema{% endblock %}
 
 {% block content %}
     <form action="" method="POST">
@@ -12,4 +13,33 @@
 
         <button type="submit">Crear empleado</button>
     </form>
+
+    <table>
+        <thead>
+            <th>ID</th> 
+            <th>Nombre</th> 
+            <th>Correo</th> 
+            <th>Teléfono</th> 
+            <th>Estado</th> 
+            <th>Rol</th>
+            <th>Acciones</th>
+        </thead>
+        <tbody>
+            {% for e in empleados %}
+            <td>{{e.id}}</td>   
+            <td>{{e.nombre}}</td>   
+            <td>{{e.correo}}</td> 
+            <td>{{e.telefono}}</td> 
+            <td>{{e.estado}}</td> 
+            <td>{{e.rol_id.nombre}}</td> 
+            <td>
+                <a href="#" class="btn_editar"><img src="{% static 'assets/icon/empleado/editar.svg' %}" alt="Imagen lápiz"></a>
+                <a href="#" class="btn_detalles"><img src="{% static 'assets/icon/empleado/detalles.svg' %}" alt="Imagen ojo"></a>
+                <a href="#" class="btn_eliminar"><img src="{% static 'assets/icon/empleado/eliminar.svg' %}" alt="Imagen basura"></a>
+            </td>
+            {% empty %}
+            <td colspan="7">No hay nada que mostrar</td>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

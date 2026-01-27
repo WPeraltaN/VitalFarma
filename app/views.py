@@ -123,6 +123,7 @@ def empleados(req):
             empleado.save()
     else:
         form = EmpleadosForm()
-        
+    
+    empleados = Empleados.objects.all()
     mensaje_error = ''
-    return render(req, 'pages/empleado/empleados.html',{'form':form, 'mensaje_error':mensaje_error})
+    return render(req, 'pages/empleado/empleados.html',{'form':form, 'mensaje_error':mensaje_error, 'empleados': empleados})

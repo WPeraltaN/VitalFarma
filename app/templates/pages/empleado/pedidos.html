@@ -2,7 +2,70 @@
 {% load static %}
 
 {% block titulo_pagina %}Pedidos{% endblock %}
+{% block subtitulo_pagina %}Gestión completa de los pedidos online{% endblock %}
 
 {% block content %}
+<!-- CONTENEDOR DE LA BARRA DE BÚSQUEDA Y EL BOTÓN DE AGREGAR  -->
+<div>
+    <form action="" class="barra_busqueda">
+        <input type="text" placeholder="Buscar pedido...">
+        <img src="" alt="Imagen de la lupa">        
+    </form>
 
+    <a href="#" class="boton_agregar">Agregar Pedido</a>
+</div>
+
+<!-- FORMULARIO PARA REALIZAR LOS FILTROS -->
+<form action="" class="filtar">
+    <div class="contenedor_select estado">
+        <label for="estado">Estado:</label>
+        <select name="estado" id="id_estado">
+            <option value="Todos" selected>Todos</option>
+            <option value="Pendiente">Pendiente</option>
+            <option value="Aprobado">Aprobado</option>
+            <option value="Enviado">Enviado</option>
+            <option value="Finalizado">Finalizado</option>
+        </select>
+    </div>
+
+    <div class="contenedor_select tipo">
+        <label for="tipo">Tipo:</label>
+        <select name="tipo" id="id_tipo">
+            <option value="Todos" selected>Todos</option>
+            <option value="Normal">Normal</option>
+            <option value="Receta">Receta</option>
+        </select>
+    </div>
+
+    <div class="contenedor_select fecha">
+        <label for="fecha">Fecha:</label>
+        <input type="date" name="fecha" id="id_fecha">
+    </div>
+
+    <button type="button">Filtrar</button>
+</form>
+
+<!-- TABLA PARA LISTAR LOS DATOS -->
+ <table>
+    <thead>
+        <th>ID</th> 
+        <th>Cliente</th> 
+        <th>Estado</th> 
+        <th>Total</th> 
+        <th>Fecha</th> 
+        <th>Acciones</th>
+    </thead>
+    <tbody>
+        <td>a</td>   
+        <td>a</td>   
+        <td>a</td> 
+        <td>a</td> 
+        <td>a</td> 
+        <td>
+            <a href="#" class="btn_editar"><img src="{% static 'assets/icon/empleado/editar.svg' %}" alt="Imagen lápiz"></a>
+            <a href="#" class="btn_detalles"><img src="{% static 'assets/icon/empleado/detalles.svg' %}" alt="Imagen ojo"></a>
+            <a href="#" class="btn_eliminar"><img src="{% static 'assets/icon/empleado/eliminar.svg' %}" alt="Imagen basura"></a>
+        </td>
+    </tbody>
+ </table>
 {% endblock %}

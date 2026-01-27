@@ -15,10 +15,10 @@ def menu_principal(req):
 def menu_empleados(req):
     return{
         'menu2':[
-            {'name':'Dashboard', 'url':'dashboard'},
-            {'name':'Pedidos', 'url':'pedidos'},
-            {'name':'Inventario', 'url':'inventario'},
-            {'name':'Clientes', 'url':'clientes'},
-            {'name':'Empleados', 'url':'empleados'},
+            {'name':'Dashboard', 'url':'dashboard', 'img':'assets/icon/empleado/aside/dashboard.svg'},
+            {'name':'Pedidos', 'url':'pedidos', 'img':'assets/icon/empleado/aside/pedidos.svg'},
+            {'name':'Inventario', 'url':'inventario', 'img':'assets/icon/empleado/aside/inventario.svg'},
+            {'name':'Clientes', 'url':'clientes', 'img':'assets/icon/empleado/aside/clientes.svg'},
+            {'name':'Empleados', 'url':'empleados', 'img':'assets/icon/empleado/aside/pedidos.svg'},
         ]
     }

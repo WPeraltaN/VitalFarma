@@ -2,6 +2,6 @@
 
 <nav>
     {% for item in menu2 %}
-        <a href="{% url item.url %}" class="{{item.name}}">{{item.name}}</a>
+        <a href="{% url item.url %}" class="{{item.name}}"><img src="{% static item.img %}" alt="asd"><span>{{item.name}}</span></a>
     {% endfor %}
 </nav>

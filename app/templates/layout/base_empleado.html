@@ -10,14 +10,15 @@
 <body>
     <aside>
         <img src="{% static 'assets/img/logo/logo2RMBG.png' %}" class="logo" alt="Logo de la página">
-
-        
         {% include 'components/empleado/navbar.html' %}
     </aside>
 
     <div class="contenedor">
         <header>
-            <h1>{% block titulo_pagina %}{% endblock %}</h1>
+            <div class="encabezado_pagina">
+                <h1>{% block titulo_pagina %}{% endblock %}</h1>
+                <h3>{% block subtitulo_pagina %}{% endblock %}</h3>
+            </div>
         </header>
 
         <main>
