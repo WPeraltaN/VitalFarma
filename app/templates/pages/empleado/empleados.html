@@ -4,16 +4,82 @@
 {% block titulo_pagina %}Empleados{% endblock %}
 {% block subtitulo_pagina %}Administración del personal del sistema{% endblock %}
 
+{% block funcion %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+
+            let popup = document.getElementById('popup');
+            let btn_agregar = document.getElementById('btn_agregar');
+
+            function popup_visible(){
+                alert('La funcion funciona...');
+                popup.style.display = 'block';
+            }
+
+            btn_agregar.addEventListener('click', popup_visible);
+
+        });
+    </script>
+
+{% endblock funcion %}
+
 {% block content %}
-    <form action="" method="POST">
-        {% csrf_token %}
-        <h2>Agregar empleado</h2>
+    <!-- CONTENEDOR DE LA BARRA DE BÚSQUEDA Y EL BOTÓN DE AGREGAR  -->
+    <div>
+        <form action="" class="barra_busqueda">
+            <input type="text" placeholder="Buscar empleado...">
+            <img src="{% static 'assets/icon/empleado/lupa.svg' %}" alt="Imagen de la lupa">        
+        </form>
 
-        {{form.as_p}}
+        <button type="button" class="boton_agregar" id="btn_agregar">
+            Agregar Empleado
+        </button>
 
-        <button type="submit">Crear empleado</button>
+    </div>
+
+    <!-- FORMULARIO PARA REALIZAR LOS FILTROS -->
+    <form action="" class="filtar">
+        <div class="contenedor_select estado">
+            <label for="estado">Estado:</label>
+            <select name="estado" id="id_estado">
+                <option value="Todos" selected>Todos</option>
+                <option value="Pendiente">Pendiente</option>
+                <option value="Aprobado">Aprobado</option>
+                <option value="Enviado">Enviado</option>
+                <option value="Finalizado">Finalizado</option>
+            </select>
+        </div>
+
+        <div class="contenedor_select tipo">
+            <label for="tipo">Tipo:</label>
+            <select name="tipo" id="id_tipo">
+                <option value="Todos" selected>Todos</option>
+                <option value="Normal">Normal</option>
+                <option value="Receta">Receta</option>
+            </select>
+        </div>
+
+        <div class="contenedor_select fecha">
+            <label for="fecha">Fecha:</label>
+            <input type="date" name="fecha" id="id_fecha">
+        </div>
+
+        <button type="button">Filtrar</button>
     </form>
 
+    <!-- POPUP -->
+    <div class="popup" id="popup" style="display: none;">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h2>Agregar empleado</h2>
+
+            {{form.as_p}}
+
+            <button type="submit">Agregar empleado</button>
+        </form>    
+    </div>
+    
+    <!-- TABLA PARA LISTAR DATOS -->
     <table>
         <thead>
             <th>ID</th> 
